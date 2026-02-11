@@ -1,0 +1,212 @@
+/* =========================================
+   SECTION WRAPPER (match Hero alignment)
+========================================= */
+
+.map-section {
+  width: 100%;
+  padding: clamp(16px, 10vw, 480px);
+  background: var(--nav-bg);
+}
+
+
+/* =========================================
+   PANEL GRID
+========================================= */
+
+.map-panel {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: clamp(16px, 4vw, 28px);
+  align-items: stretch;
+}
+
+@media (max-width: 920px) {
+  .map-panel {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================
+   LEFT GLASS PANEL
+========================================= */
+
+.map-panel__left {
+  background: color-mix(in oklab, var(--nav-bg) 88%, transparent);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  padding: clamp(16px, 3vw, 28px);
+  text-align: left;
+}
+
+/* Typography uses NAV variables */
+
+.map-eyebrow {
+  color: var(--nav-link);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+.map-title {
+  color: var(--nav-text);
+  margin: 0 0 0.5rem;
+}
+
+.map-sub {
+  color: var(--nav-muted);
+  font-size: 0.95rem;
+  margin-bottom: 1.2rem;
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.map-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+}
+
+.btn--pulse {
+  animation: pulseBtn 0.8s ease;
+}
+
+@keyframes pulseBtn {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* =========================================
+   CHIPS
+========================================= */
+
+.map-readout {
+  display: grid;
+  gap: 8px;
+}
+
+.chip {
+  background: var(--btn-bg);
+  border: 1px solid var(--border);
+  color: var(--nav-text);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.chip__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--brand-dot);
+}
+
+.chip__dot--b {
+  background: #34d399;
+}
+
+/* =========================================
+   MAP CARD
+========================================= */
+
+.map-panel__right {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.map-card {
+  width: 100%;
+  height: 75vh;
+}
+
+/* Leaflet base */
+
+.leaflet-container {
+  background: var(--nav-bg);
+  font-family: inherit;
+}
+
+/* =========================================
+   FLOATING LEGEND
+========================================= */
+
+.map-legend {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 600;
+  background: color-mix(in oklab, var(--nav-bg) 85%, transparent);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 8px 12px;
+  font-size: 0.75rem;
+  color: var(--nav-text);
+  display: grid;
+  gap: 6px;
+}
+
+.legend-dot,
+.legend-dot--a,
+.legend-dot--b {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.legend-dot--a { background: var(--brand-dot); }
+.legend-dot--b { background: #34d399; }
+
+.legend-line {
+  width: 18px;
+  height: 3px;
+  background: var(--brand-dot);
+  display: inline-block;
+  margin-right: 6px;
+}
+
+/* =========================================
+   THEMED MARKERS
+========================================= */
+
+.leaflet-marker-icon {
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+}
+
+/* =========================================
+   POPUP
+========================================= */
+
+.leaflet-popup-content-wrapper {
+  background: var(--nav-bg);
+  color: var(--nav-text);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.leaflet-popup-tip {
+  background: var(--nav-bg);
+}
+
+/* =========================================
+   FIX HERO OVERLAP
+========================================= */
+
+.map-section {
+  background: var(--nav-bg);
+  margin-top: auto;
+}

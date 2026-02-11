@@ -1,0 +1,196 @@
+:root {
+  --accent: var(--brand-dot);
+}
+
+/* ------- LAYOUT ------- */
+.hero {
+  
+  width: min(96vw, 1280px);
+  margin: 0 auto;
+  padding: clamp(16px, 4vw, 32px);
+
+  
+  padding-top: clamp(8px, 2vh, 16px);
+
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(16px, 4vw, 28px);
+}
+
+@media (min-width: 920px) {
+  .hero {
+    grid-template-columns: 1.05fr 1fr; /* For slight bias to text try adjusting */
+    align-items: center;
+  }
+}
+
+/* ------- LEFT SIDE ------- */
+.hero__content {
+  display: grid;
+  gap: clamp(10px, 2.6vh, 18px);
+}
+
+.hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--nav-link);
+  background: color-mix(in oklab, var(--btn-bg) 70%, transparent);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 6px 10px;
+  width: fit-content;
+  font-size: clamp(12px, 1.8vw, 13px);
+  font-weight: 600;
+}
+
+.hero__title {
+  margin: 0;
+  font-size: clamp(28px, 6vw, 44px);
+  line-height: 1.12;
+  color: var(--nav-text);
+  letter-spacing: 0.2px;
+}
+
+.hero__desc {
+  margin: 0;
+  color: color-mix(in oklab, var(--nav-text) 80%, white 20%);
+  font-size: clamp(14px, 2.2vw, 18px);
+  max-width: 58ch;
+}
+
+.hero__bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.hero__bullet {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--nav-text);
+  font-size: clamp(13px, 2vw, 16px);
+}
+
+.hero__bullet-icon {
+  color: var(--accent);
+  margin-top: 2px;
+  flex: 0 0 auto;
+}
+
+.hero__cta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  font-weight: 650;
+  font-size: clamp(13px, 2vw, 15px);
+  transition: transform 0.08s ease, background 0.5s ease-in-out, color 0.5s ease;
+}
+
+.btn:active { transform: scale(0.98); }
+
+.btn--primary {
+  background: var(--accent);
+  color: white;
+  border-color: color-mix(in oklab, var(--accent) 70%, black 10%);
+  box-shadow: 0 8px 20px color-mix(in oklab, var(--accent) 20%, transparent);
+}
+.btn--primary:hover {
+  background: color-mix(in oklab, var(--accent) 92%, white 8%);
+}
+
+.btn--ghost {
+  background: var(--btn-bg);
+  color: var(--nav-text);
+}
+.btn--ghost:hover {
+  background: var(--btn-bg-hover);
+}
+
+
+.hero__trust {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.hero__avatars {
+  display: inline-flex;
+}
+.avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--btn-bg);
+  border: 1px solid var(--border);
+  color: var(--nav-link);
+  font-size: 12px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: -8px; /* For overlap slightly */
+  box-shadow: var(--shadow);
+}
+.hero__trust-text {
+  margin: 0;
+  color: var(--nav-muted);
+  font-size: clamp(12px, 1.8vw, 13px);
+}
+
+/* ------- RIGHT SIDE (MAP CARD) ------- */
+.hero__visual {
+  position: relative;
+  background:
+    radial-gradient(120% 120% at 10% 10%, rgba(45,123,240,0.18) 0%, transparent 60%),
+    radial-gradient(120% 120% at 90% 20%, rgba(124,169,255,0.12) 0%, transparent 60%),
+    var(--nav-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  overflow: clip;
+
+  
+  min-height: clamp(260px, 42vh, 380px);
+  padding: clamp(8px, 1.5vw, 12px);
+}
+
+.hero__map-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Animation */
+.pin__pulse {
+  fill: var(--brand-dot);
+  opacity: 0.25;
+  transform-origin: center;
+  animation: pulse 1.8s ease-out infinite;
+}
+.pin:nth-of-type(2) .pin__pulse { animation-delay: 0.2s; }
+.pin:nth-of-type(3) .pin__pulse { animation-delay: 0.4s; }
+.pin:nth-of-type(4) .pin__pulse { animation-delay: 0.6s; }
+
+@keyframes pulse {
+  0%   { transform: scale(1);   opacity: 0.35; }
+  70%  { transform: scale(2.5); opacity: 0;    }
+  100% { transform: scale(2.5); opacity: 0;    }
+}
+
+@media (min-width: 1400px) {
+  .hero {
+    width: min(92vw, 1380px);
+  }
+}
